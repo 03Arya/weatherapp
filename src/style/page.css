@@ -1,0 +1,47 @@
+body {
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+  background-color: #2E335A;
+}
+
+.weatherWidgetContainer {
+  width: 80vw;
+  height: 200px;
+  background-color: #5936b4;
+  margin: 1em auto;
+  padding: 2em 1em 1em 1em;
+  border: 2px solid #5936b4;
+  border-radius: 25px;
+}
+
+.weatherBox .weatherWidgetDegrees {
+  font-size: 60px;
+}
+.weatherBox .weatherDiv1 {
+  width: 40%;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+}
+.weatherBox .weatherDiv2 {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+}
+.weatherBox .weatherType {
+  color: white;
+  grid-row: 1;
+  text-align: end;
+}
+.weatherBox .weatherLocation {
+  grid-row: 1;
+}
+.weatherBox .weatherWidgetDegrees,
+.weatherBox .weatherLocation {
+  color: white;
+}
+.weatherBox .weatherHighest,
+.weatherBox .weatherLowest {
+  color: rgba(235, 235, 245, 0.4156862745);
+  grid-row: 1;
+}/*# sourceMappingURL=page.css.map */
