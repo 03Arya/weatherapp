@@ -5,6 +5,11 @@ body {
   background-color: #2E335A;
 }
 
+img {
+  width: 100px;
+  height: 100px;
+}
+
 .weatherWidgetContainer {
   width: 80vw;
   height: 200px;

@@ -1,6 +1,7 @@
 "use client"
 import "@/style/page.scss";
-// import icon from "../images/icon.png";
+import icon from "./icon1.png";
+console.log(icon)
 
 export default function WeatherWidget() {
     return (
@@ -15,6 +16,7 @@ export default function WeatherWidget() {
                     <p className="weatherLocation">Montreal, Canada</p>
                     <p className="weatherType">Mid Rain</p>
                 </div>
+                <img src={icon} alt="" />
             </div>
         </section>
     )
