@@ -1,13 +1,20 @@
 "use client"
-import "@/style/page.scss";
-import icon from "./icon1.png";
+import Image from "next/image";
+import icon from "@/images/big-icons/icon1.png";
+import bg from "@/images/Rectangle1.png";
+
 console.log(icon)
 
 export default function WeatherWidget() {
     return (
-        <section className="weatherWidgetContainer">
+        <section style={{ backgroundImage: `url(${bg.src})` }} className="weatherWidgetContainer">
+
             <div className="weatherBox">
-                <h2 className="weatherWidgetDegrees">19°</h2>
+                <div className="weatherWidgetHeaderBox">
+                    <h2 className="weatherWidgetDegrees">19°</h2>
+                    <Image className="weatherWidgetImage" src={icon} alt="" />
+                </div>
+
                 <div className="weatherDiv1">
                     <p className="weatherHighest">H:24°</p> <p className="weatherLowest">L:18°</p>
                 </div>
@@ -16,7 +23,6 @@ export default function WeatherWidget() {
                     <p className="weatherLocation">Montreal, Canada</p>
                     <p className="weatherType">Mid Rain</p>
                 </div>
-                <img src={icon} alt="" />
             </div>
         </section>
     )
