@@ -25,6 +25,8 @@ function getWeatherIcon(weather) {
   return weatherIcons[weather];
 }
 
+
+
 export default function Home() {
   const [weatherData, setWeatherData] = useState(null)
 
@@ -35,7 +37,7 @@ export default function Home() {
         const lon = position.coords.longitude;
         const key = "fad690526e6d396356e0d2f5cbe639ad";
 
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`)
+        axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${key}`)
           .then(response => {
             setWeatherData(response.data);
             console.log(response.data)
@@ -59,14 +61,15 @@ export default function Home() {
       <WeatherWidget />
       <WeatherWidget />
       <section className="pilesGridContainer">
-        {weatherData && <Pile time={"now"} image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
-        {weatherData && <Pile image={getWeatherIcon(weatherData.weather[0].main)} humidity={weatherData.main.humidity + "%"} temp={weatherData.main.temp + "°"} />}
+        {weatherData && weatherData.list.map((forecast, index) => (
+          <Pile
+            key={index}
+            time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })} 
+            image={getWeatherIcon(forecast.weather[0].main)}
+            humidity={forecast.main.humidity + "%"}
+            temp={Math.round(forecast.main.temp - 273.15) + "°"}
+          />
+        ))}
       </section>
     </main>
   )
