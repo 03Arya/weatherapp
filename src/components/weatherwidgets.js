@@ -3,8 +3,6 @@ import Image from "next/image";
 import icon from "@/images/big-icons/icon1.png";
 import bg from "@/images/Rectangle1.png";
 
-console.log(icon)
-
 export default function WeatherWidget() {
     return (
         <section style={{ backgroundImage: `url(${bg.src})` }} className="weatherWidgetContainer">
