@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import icon from "@/images/big-icons/icon1.png";
+import icon from "@/images/weather-icons/rainy-3.svg";
 import bg from "@/images/Rectangle1.png";
 
 export default function WeatherWidget() {

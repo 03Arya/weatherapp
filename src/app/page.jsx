@@ -10,22 +10,25 @@ import "@/style/weatherwidget.scss"
 import "@/style/forecast.scss"
 import "@/style/pile.scss"
 
-import CloudsImage from "@/images/small-icons/icon1.png"
-import RainImage from "@/images/small-icons/icon2.png"
-import SunRain1 from "@/images/small-icons/icon3.png"
-import SunRain2 from "@/images/small-icons/icon4.png"
-import Tornado from "@/images/small-icons/icon5.png"
+import CloudsImage from "@/images/weather-icons/cloudy.svg"
+import ClearImage from "@/images/weather-icons/clear-day.svg"
+import RainImage from "@/images/weather-icons/rainy-3.svg"
+import DrizzleImage from "@/images/weather-icons/hail.svg"
+import ThunderstormImage from "@/images/weather-icons/thunderstorms.svg"
+import TornadoImage from "@/images/weather-icons/tornado.svg"
 
 const weatherIcons = {
-  Clouds: CloudsImage
-
+  Clouds: CloudsImage,
+  Clear: ClearImage,
+  Rain: RainImage,
+  Drizzle: DrizzleImage,
+  Thunderstorm: ThunderstormImage,
+  Tornado: TornadoImage
 }
 
 function getWeatherIcon(weather) {
   return weatherIcons[weather];
 }
-
-
 
 export default function Home() {
   const [weatherData, setWeatherData] = useState(null)
@@ -54,6 +57,7 @@ export default function Home() {
   }, []);
 
 
+
   return (
     <main>
       <WeatherWidget />
@@ -61,10 +65,10 @@ export default function Home() {
       <WeatherWidget />
       <WeatherWidget />
       <section className="pilesGridContainer">
-        {weatherData && weatherData.list.map((forecast, index) => (
+        {weatherData && weatherData.list.slice(0, 8).map((forecast, index) => (
           <Pile
             key={index}
-            time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true })} 
+            time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true })}
             image={getWeatherIcon(forecast.weather[0].main)}
             humidity={forecast.main.humidity + "%"}
             temp={Math.round(forecast.main.temp - 273.15) + "°"}

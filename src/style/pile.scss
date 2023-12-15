@@ -4,6 +4,8 @@
     padding: 1.5em 0.5em 0.5em 0.5em;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
+    width: 60px;
+    height: 150px;
 
     p {
         font-size: 13px;
@@ -11,13 +13,17 @@
         color: white;
     }
     img {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         display: block;
         margin: auto;
     }
     .pileHumidity {
         color: #40cbd8;
+    }
+    .pileTime {
+        text-transform: uppercase;
+        font-weight: 600;
     }
 }
 
