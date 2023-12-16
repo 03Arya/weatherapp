@@ -12,15 +12,18 @@
         text-align: center;
         color: white;
     }
+
     img {
         width: 40px;
         height: 40px;
         display: block;
         margin: auto;
     }
+
     .pileHumidity {
         color: #40cbd8;
     }
+
     .pileTime {
         text-transform: uppercase;
         font-weight: 600;
@@ -40,4 +43,13 @@
     width: 100%;
     gap: 1em;
     padding: 0 1em;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.pilesGridContainer::-webkit-scrollbar {
+    display: none;
+
 }

@@ -30,7 +30,7 @@ function getWeatherIcon(weather) {
   return weatherIcons[weather];
 }
 
-export default function Home() {
+export default function weatherFetch() {
   const [weatherData, setWeatherData] = useState(null)
 
   useEffect(() => {
@@ -60,10 +60,6 @@ export default function Home() {
 
   return (
     <main>
-      <WeatherWidget />
-      <WeatherWidget />
-      <WeatherWidget />
-      <WeatherWidget />
       <section className="pilesGridContainer">
         {weatherData && weatherData.list.slice(0, 8).map((forecast, index) => (
           <Pile
@@ -75,6 +71,7 @@ export default function Home() {
           />
         ))}
       </section>
+
     </main>
   )
 }
