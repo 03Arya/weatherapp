@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react"
 import WeatherWidget from "@/components/weatherwidgets"
 import Forecast from "@/components/forecast"
 import Pile from "@/components/pile"
+import Navigation from "@/components/navigation"
 import axios from "axios"
 
 import "@/style/main.scss"
@@ -60,6 +61,7 @@ export default function weatherFetch() {
 
   return (
     <main>
+      <Navigation />
       <section className="pilesGridContainer">
         {weatherData && weatherData.list.slice(0, 8).map((forecast, index) => (
           <Pile
