@@ -1,9 +1,9 @@
 "use client"
 import Image from "next/image"
 
-export default function Pile({ time, image, humidity, temp, day }) {
+export default function Pile({className, time, image, humidity, temp, day }) {
     return (
-        <div className="pileBorderBox">
+        <div className={`pileBorderBox ${className}`}>
             <section className="pileContentContainer">
             {day && <p>{day}</p>}
                 <p className="pileTime">{time}</p>

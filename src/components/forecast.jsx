@@ -65,6 +65,7 @@ export default function Forecast() {
                 {weatherData && forecastType === 'hourly' && weatherData.list.slice(0, 8).map((forecast, index) => (
                     <Pile
                         key={index}
+                        className={index === 0 ? 'current' : ''}
                         time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true })}
                         image={getWeatherIcon(forecast.weather[0].main)}
                         humidity={forecast.main.humidity + "%"}
@@ -74,6 +75,7 @@ export default function Forecast() {
                 {weatherData && forecastType === 'weekly' && weatherData.list.filter((_, index) => index % 8 === 0).slice(0, 8).map((forecast, index) => (
                     <Pile
                         key={index}
+                        className={index === 0 ? 'current' : ''}
                         day={new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}
                         time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true })}
                         image={getWeatherIcon(forecast.weather[0].main)}

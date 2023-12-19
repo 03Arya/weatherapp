@@ -1,5 +1,5 @@
 .forecastContainer {
-    max-width: 100vw;
+    max-width: 450px;
     height: 300px;
     margin: auto;
     border-top-left-radius: 35px;
@@ -9,6 +9,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    opacity: 0.9;
 }
 
 .forecastDiv {

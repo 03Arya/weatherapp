@@ -1,5 +1,4 @@
 .pileContentContainer {
-    background-color: #48319d;
     border-radius: 50px;
     padding: 1.5em 0.5em 0.5em 0.5em;
     display: grid;
@@ -32,7 +31,7 @@
 
 .pileBorderBox {
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.226);
-    background: linear-gradient(to right, #48319d82, #48319d);
+    //background: linear-gradient(to right, #48319d82, #48319d);
     border-radius: 50px;
     padding: 1px;
 }
@@ -52,4 +51,8 @@
 .pilesGridContainer::-webkit-scrollbar {
     display: none;
 
+}
+
+.current {
+    background-color: #48319d;
 }
