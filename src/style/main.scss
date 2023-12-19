@@ -13,8 +13,10 @@ html {
 
 }
 
-p {
-    font-family: 'SF Black Italic';
-    font-weight: 700;
+.house {
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    bottom: 0;
+    margin-bottom: 30vw;
 }
-

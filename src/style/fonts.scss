@@ -1,5 +1,14 @@
 @font-face {
-    font-family: 'SF Black Italic';
+    font-family: 'Bold';
     src: url('/src/fonts/SFPRODISPLAYBOLD.OTF') format('opentype');
+}
 
+@font-face {
+    font-family: 'Medium';
+    src: url('/src/fonts/SFPRODISPLAYMEDIUM.OTF') format('opentype');
+}
+
+@font-face {
+    font-family: 'Regular';
+    src: url('/src/fonts/SFPRODISPLAYREGULAR.OTF') format('opentype');
 }

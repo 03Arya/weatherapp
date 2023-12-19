@@ -1,6 +1,6 @@
 .forecastContainer {
     max-width: 100vw;
-    height: 325px;
+    height: 300px;
     margin: auto;
     border-top-left-radius: 35px;
     border-top-right-radius: 35px;
@@ -17,4 +17,26 @@
     text-align: center;
     border-bottom: 1px solid gray;
     margin-bottom: 1em;
+
+    p {
+        cursor: pointer;
+        color: #EBEBF5;
+        font-size: 13px;
+        width: 120px;
+        margin: auto;
+    }
+}
+
+.line {
+    width: 100px;
+    height: 20px;
+    color: white;
+    margin: auto;
+    display: block;
+    z-index: 1;
+    position: relative;
+}
+
+.active {
+    border-bottom: 2px solid white;
 }

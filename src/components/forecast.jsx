@@ -22,8 +22,15 @@ const weatherIcons = {
 function getWeatherIcon(weather) {
     return weatherIcons[weather];
 }
+
 export default function Forecast() {
     const [weatherData, setWeatherData] = useState(null)
+    const [forecastType, setForecastType] = useState('hourly');
+
+    const handleForecastTypeChange = (newType) => {
+        setForecastType(newType);
+    };
+
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
@@ -46,17 +53,28 @@ export default function Forecast() {
             console.log("Geolocation is not supported by this browser.");
         }
     }, []);
-    
+
     return (
         <section className="forecastContainer">
+            <p className="line"></p>
             <div className="forecastDiv">
-                <p>Hourly Forecast</p>
-                <p>Weekly Forecast</p>
+                <p className={`hourly ${forecastType === 'hourly' ? 'active' : ''}`} onClick={() => handleForecastTypeChange('hourly')}>Hourly Forecast</p>
+                <p className={`weekly ${forecastType === 'weekly' ? 'active' : ''}`} onClick={() => handleForecastTypeChange('weekly')}>Weekly Forecast</p>
             </div>
             <section className="pilesGridContainer">
-                {weatherData && weatherData.list.slice(0, 8).map((forecast, index) => (
+                {weatherData && forecastType === 'hourly' && weatherData.list.slice(0, 8).map((forecast, index) => (
                     <Pile
                         key={index}
+                        time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true })}
+                        image={getWeatherIcon(forecast.weather[0].main)}
+                        humidity={forecast.main.humidity + "%"}
+                        temp={Math.round(forecast.main.temp - 273.15) + "°"}
+                    />
+                ))}
+                {weatherData && forecastType === 'weekly' && weatherData.list.filter((_, index) => index % 8 === 0).slice(0, 8).map((forecast, index) => (
+                    <Pile
+                        key={index}
+                        day={new Date(forecast.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' })}
                         time={new Date(forecast.dt * 1000).toLocaleTimeString([], { hour: 'numeric', hour12: true })}
                         image={getWeatherIcon(forecast.weather[0].main)}
                         humidity={forecast.main.humidity + "%"}
