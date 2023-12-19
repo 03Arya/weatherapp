@@ -2,10 +2,9 @@
     max-width: 100vw;
     height: 325px;
     margin: auto;
-    opacity: .5;
-    border: solid purple 2px;
-    border-radius: 25px;
-    padding: 1em 2em;
+    border-top-left-radius: 35px;
+    border-top-right-radius: 35px;
+    padding: 1em 0em;
     background-image: linear-gradient(#2E335A, #1C1B33);
     position: fixed;
     bottom: 0;
@@ -16,4 +15,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     text-align: center;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1em;
 }

@@ -4,7 +4,7 @@ body {
     margin: auto;
     height: 100vh;
     background-image: url(../images/HomeBackground.png);
-    background-repeat:no-repeat ;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
@@ -12,3 +12,9 @@ html {
     background-image: linear-gradient(#2E335A, #1C1B33);
 
 }
+
+p {
+    font-family: 'SF Black Italic';
+    font-weight: 700;
+}
+
