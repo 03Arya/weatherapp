@@ -9,6 +9,7 @@ import RainImage from "@/images/weather-icons/rainy-3.svg"
 import DrizzleImage from "@/images/weather-icons/hail.svg"
 import ThunderstormImage from "@/images/weather-icons/thunderstorms.svg"
 import TornadoImage from "@/images/weather-icons/tornado.svg"
+import Snowy from "@/images/weather-icons/snowy-3.svg"
 
 const weatherIcons = {
     Clouds: CloudsImage,
@@ -16,7 +17,8 @@ const weatherIcons = {
     Rain: RainImage,
     Drizzle: DrizzleImage,
     Thunderstorm: ThunderstormImage,
-    Tornado: TornadoImage
+    Tornado: TornadoImage,
+    Snow: Snowy
 }
 
 function getWeatherIcon(weather) {
